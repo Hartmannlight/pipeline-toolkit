@@ -85,5 +85,8 @@
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+(?:ARG [A-Z_]+=|version: |POETRY_VERSION: |TRIVY_VERSION: )(?<currentValue>[^\\s]+)"
       ]
     }
+  ],
+  "statusCheckNames": [
+    "ci-gate"
   ]
 }
