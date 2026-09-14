@@ -1,0 +1,26 @@
+name: Scan candidate
+description: Block fixable high/critical vulnerabilities and secrets; produce SBOM
+inputs:
+  image:
+    description: Local candidate tag
+    default: candidate:gate
+  output:
+    description: Report directory
+    default: artifacts
+runs:
+  using: composite
+  steps:
+    - uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567
+      with:
+        version: v0.74.0
+        cache: true
+    - shell: bash
+      env:
+        IMAGE: ${{ inputs.image }}
+        OUTPUT: ${{ inputs.output }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        mkdir -p "$OUTPUT"
+        trivy image --scanners vuln,secret --format json --output "$OUTPUT/image-scan.json" "$IMAGE"
+        python3 "$ACTION_PATH/gate.py" "$OUTPUT/image-scan.json"
+        trivy image --format spdx-json --output "$OUTPUT/sbom.spdx.json" "$IMAGE"
