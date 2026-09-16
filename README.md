@@ -22,3 +22,7 @@ interpreter compatibility ranges and Poetry library requirements are unchanged.
 Renovate preserves `project.requires-python` compatibility minimums. Raising that
 minimum is a deliberate compatibility change, not a runtime security update.
 Docker Python images, interpreter pins, dependencies and lockfiles remain updated.
+
+Go module directives and `golang` compiler images are updated together as the
+`Go toolchain` group, so readonly builds do not require a newer compiler than
+the pinned builder provides.
