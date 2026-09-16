@@ -91,6 +91,15 @@
         "requires-python"
       ],
       "enabled": false
+    },
+    {
+      "description": "Update Go module requirements and Docker compiler images together.",
+      "matchPackageNames": [
+        "go",
+        "golang"
+      ],
+      "groupName": "Go toolchain",
+      "separateMajorMinor": false
     }
   ],
   "customManagers": [
