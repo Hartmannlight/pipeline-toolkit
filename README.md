@@ -26,3 +26,8 @@ Docker Python images, interpreter pins, dependencies and lockfiles remain update
 Go module directives and `golang` compiler images are updated together as the
 `Go toolchain` group, so readonly builds do not require a newer compiler than
 the pinned builder provides.
+
+For Poetry, the isolated `poetry-core` build-system requirement is updated without
+trying to install it as a project dependency through `poetry.lock`. This exception
+is limited to that backend declaration; application dependency artifacts remain
+mandatory.
