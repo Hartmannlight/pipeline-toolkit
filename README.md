@@ -18,3 +18,7 @@ Python application dependencies managed through PEP 621/uv use exact requirement
 This keeps uv lock resolution aligned with Renovate's minimum release age instead
 of allowing an open lower bound to select a newer, unapproved release. Python
 interpreter compatibility ranges and Poetry library requirements are unchanged.
+
+Renovate preserves `project.requires-python` compatibility minimums. Raising that
+minimum is a deliberate compatibility change, not a runtime security update.
+Docker Python images, interpreter pins, dependencies and lockfiles remain updated.
