@@ -13,3 +13,8 @@ No PR event may publish. Application tests stay in each product repository.
 consumer's required CI checks. Major/prerelease updates remain manual.
 The independent maintenance service is deployed separately on the operator's
 server; credentials and private repository inventory do not belong here.
+
+Python application dependencies managed through PEP 621/uv use exact requirements.
+This keeps uv lock resolution aligned with Renovate's minimum release age instead
+of allowing an open lower bound to select a newer, unapproved release. Python
+interpreter compatibility ranges and Poetry library requirements are unchanged.

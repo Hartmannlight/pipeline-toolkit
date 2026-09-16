@@ -71,6 +71,16 @@
         "discord-py-self"
       ],
       "automerge": false
+    },
+    {
+      "description": "Pin uv application requirements so artifact resolution cannot jump ahead of the minimum release age.",
+      "matchManagers": [
+        "pep621"
+      ],
+      "matchDatasources": [
+        "pypi"
+      ],
+      "rangeStrategy": "pin"
     }
   ],
   "customManagers": [
