@@ -100,6 +100,19 @@
       ],
       "groupName": "Go toolchain",
       "separateMajorMinor": false
+    },
+    {
+      "description": "Poetry build backends are isolated PEP 517 requirements, not dependencies installed from poetry.lock.",
+      "matchManagers": [
+        "poetry"
+      ],
+      "matchDepTypes": [
+        "build-system.requires"
+      ],
+      "matchPackageNames": [
+        "poetry-core"
+      ],
+      "skipArtifactsUpdate": true
     }
   ],
   "customManagers": [
