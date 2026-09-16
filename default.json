@@ -81,6 +81,16 @@
         "pypi"
       ],
       "rangeStrategy": "pin"
+    },
+    {
+      "description": "requires-python declares supported interpreters; changing its minimum is a compatibility change, not an installed runtime update. Docker images and actual interpreter pins remain updated.",
+      "matchManagers": [
+        "pep621"
+      ],
+      "matchDepTypes": [
+        "requires-python"
+      ],
+      "enabled": false
     }
   ],
   "customManagers": [
