@@ -42,14 +42,8 @@ runs:
     env:
       IMAGE: ${{ inputs.image }}
       CANDIDATE: ${{ inputs.candidate }}
-    run: |
-      immutable="$IMAGE:sha-$GITHUB_SHA-r$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
-      docker tag "$CANDIDATE" "$immutable"
-      docker push "$immutable"
-      digest=$(docker buildx imagetools inspect "$immutable" --format '{{json .Manifest.Digest}}' | tr -d '"')
-      [[ "$digest" =~ ^sha256:[a-f0-9]{64}$ ]]
-      echo "digest=$digest" >> "$GITHUB_OUTPUT"
-      echo "Published $immutable@$digest" >> "$GITHUB_STEP_SUMMARY"
+      PUBLISH_ACTION_PATH: ${{ github.action_path }}
+    run: bash "$PUBLISH_ACTION_PATH/push.sh"
   - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8
     with:
       subject-name: ${{ inputs.image }}
