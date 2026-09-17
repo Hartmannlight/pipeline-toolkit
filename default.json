@@ -119,20 +119,23 @@
       "matchManagers": [
         "poetry"
       ],
-      "matchPackageNames": [
+      "enabled": false,
+      "matchDepNames": [
         "python"
-      ],
-      "enabled": false
+      ]
     },
     {
       "description": "The go directive is a minimum compiler requirement, not the installed compiler. Preserve it unless a dependency requires a higher minimum; Docker compiler images stay updated.",
       "matchManagers": [
         "gomod"
       ],
-      "matchPackageNames": [
+      "enabled": false,
+      "matchDepNames": [
         "go"
       ],
-      "enabled": false
+      "matchDepTypes": [
+        "golang"
+      ]
     }
   ],
   "customManagers": [
