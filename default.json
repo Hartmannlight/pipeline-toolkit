@@ -113,6 +113,16 @@
         "poetry-core"
       ],
       "skipArtifactsUpdate": true
+    },
+    {
+      "description": "Poetry python dependencies declare supported interpreters, just like PEP 621 requires-python. Update installed Docker and CI runtimes separately.",
+      "matchManagers": [
+        "poetry"
+      ],
+      "matchPackageNames": [
+        "python"
+      ],
+      "enabled": false
     }
   ],
   "customManagers": [
